@@ -1,0 +1,176 @@
+{
+    "name": "Acciones",
+    "maps": [
+        {
+            "name": "Jugador",
+            "id": "18a2f109-6bd7-4432-8b1d-3edb8da56b18",
+            "actions": [
+                {
+                    "name": "tecladowasd",
+                    "type": "Value",
+                    "id": "3231ce37-7adf-40dd-860a-ee32baa333aa",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Flechitas",
+                    "type": "Value",
+                    "id": "2f454bda-0ecf-4a01-9eaa-009493028fa4",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WASD",
+                    "id": "74bb0870-ec7e-4c59-9aa9-6a825e276d32",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "tecladowasd",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "a373f2a9-6ea7-4d47-b2c8-3b4e43d7c6de",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoWASD",
+                    "action": "tecladowasd",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "2aa764a5-d176-457c-9f52-1c64fb295869",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoWASD",
+                    "action": "tecladowasd",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "forward",
+                    "id": "d9d6a083-905a-44e7-ba80-731da283e146",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoWASD",
+                    "action": "tecladowasd",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "backward",
+                    "id": "1b491537-b90a-430a-a81a-8798a4af4aea",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoWASD",
+                    "action": "tecladowasd",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "3D Vector",
+                    "id": "27c7f60a-4427-4d94-9340-579e254691af",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flechitas",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "22bf4c61-a4cf-4c67-a570-25cb6546c44b",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoFlechas",
+                    "action": "Flechitas",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "4016c4b0-1296-4bc8-a4ca-89b949031ada",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoFlechas",
+                    "action": "Flechitas",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "forward",
+                    "id": "39924e36-3cbe-4fc8-b944-92a2fab840ea",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoFlechas",
+                    "action": "Flechitas",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "backward",
+                    "id": "64fbfa2f-5a47-464a-afbe-87df234ce598",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoFlechas",
+                    "action": "Flechitas",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "TecladoWASD",
+            "bindingGroup": "TecladoWASD",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "JOYSTICK",
+            "bindingGroup": "JOYSTICK",
+            "devices": [
+                {
+                    "devicePath": "<Joystick>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "TecladoFlechas",
+            "bindingGroup": "TecladoFlechas",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
