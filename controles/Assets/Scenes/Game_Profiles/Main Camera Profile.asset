@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   intensity:
     overrideState: 0
     value: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   gradingMode:
     overrideState: 0
     value: 1
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   filtering:
     overrideState: 0
     value: {x: 50, y: 95}
@@ -1427,7 +1427,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   mode:
     overrideState: 1
     value: 1

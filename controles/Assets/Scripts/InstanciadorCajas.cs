@@ -43,7 +43,7 @@ public class InstanciadorCajas : MonoBehaviour
     {
         Random.seed = (int)System.DateTime.Now.Ticks;
         // Random.Range(int floor, int ceiling);
-        numeroAleatorio = Random.Range(1,8);
+        numeroAleatorio = Random.Range(0,6);
         //Debug.Log("Random seed = " + numeroAleatorio);
 
         if (lastNumber == numeroAleatorio)
