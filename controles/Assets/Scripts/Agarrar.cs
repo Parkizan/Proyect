@@ -41,9 +41,11 @@ public class Agarrar : MonoBehaviour
                 StartCoroutine(delayCopado2());
                 return;
             }
-    }
+    }  
 
-    
+    /*public void OnTriggerEnter(Collider coll){
+        Debug.Log(coll.gameObject);
+    }*/
 
     IEnumerator delayCopado()
     {

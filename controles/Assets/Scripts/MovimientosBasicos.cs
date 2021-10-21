@@ -161,6 +161,7 @@ public class MovimientosBasicos : MonoBehaviour
 
         
     }
+
     public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector3>();
 
     public void SpeedUp()

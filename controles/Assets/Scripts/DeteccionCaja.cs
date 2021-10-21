@@ -6,7 +6,7 @@ public class DeteccionCaja : MonoBehaviour
 {
     public static int num_Powerup = 0;
     //public InstanciadorCajas IC;
-    public Collision player;
+    //public Collision player;
     public Transform hand1;
     public Transform handp;
     
@@ -19,36 +19,37 @@ public class DeteccionCaja : MonoBehaviour
     
 	if(other.gameObject.tag == "Player")
     {
-        player = other;
+        //player = other;
         num_Powerup = Random.Range(1,6);
         Debug.Log(num_Powerup);
 		Destroy(gameObject);
 	}
 
     if (num_Powerup == 1){
-       PowerUpSpeed(player);
+       PowerUpSpeed(other);
     }
 
     if (num_Powerup == 2){
-       PowerDownSpeed(player);
+       PowerDownSpeed(other);
     }
 
     if (num_Powerup == 3){
-       BorrarObjetoPropio(player);
+       BorrarObjetoPropio(other);
     }
 
     if (num_Powerup == 4){
-       BorrarObjetoAjeno(player);
+       BorrarObjetoAjeno(other);
     }
 
     if (num_Powerup == 5){
-        PowerUpFuerza(player);
+        PowerUpFuerza(other);
     }
         
   }
     
     private void PowerUpSpeed(Collision player)
     {
+        //Debug.Log(player.gameObject);
         MovimientosBasicos mov = player.gameObject.GetComponent<MovimientosBasicos>();
         mov.SpeedUp();
         
@@ -56,12 +57,14 @@ public class DeteccionCaja : MonoBehaviour
 
     private void PowerDownSpeed(Collision player)
     {
+        //Debug.Log(player.gameObject);
         MovimientosBasicos mov = player.gameObject.GetComponent<MovimientosBasicos>();
         mov.SpeedDown();
     } 
 
     private void PowerUpFuerza(Collision player)
     {
+        //Debug.Log(player.gameObject);
         GameObject player1 = GameObject.Find("Tester (1)");
         GameObject player2 = GameObject.Find("Tester (2)");
 
@@ -83,6 +86,7 @@ public class DeteccionCaja : MonoBehaviour
 
     private void BorrarObjetoPropio(Collision player)
     {
+        //Debug.Log(player.gameObject);
         hand1 = player.transform.Find("Hand");
         handp = hand1.Find("handPoint");
         ObjectManager obj = handp.gameObject.GetComponent<ObjectManager>();
@@ -91,6 +95,7 @@ public class DeteccionCaja : MonoBehaviour
 
     private void BorrarObjetoAjeno(Collision player)
     {
+        //Debug.Log(player.gameObject);
         GameObject player1 = GameObject.Find("Tester (1)");
         GameObject player2 = GameObject.Find("Tester (2)");
 
