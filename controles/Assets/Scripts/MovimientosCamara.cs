@@ -16,7 +16,8 @@ public class MovimientosCamara : MonoBehaviour
     private Vector3 velocity;
     private Camera cam; //donde se almacena la camara
  
- 
+    float boundsize;
+
     private void Start()
     {
  
@@ -26,10 +27,11 @@ public class MovimientosCamara : MonoBehaviour
  
     private void LateUpdate() //update despues del update
     {
+
+        //Debug.Log(getGreatestDistance());
  
         if (targets.Count == 0) //si no hay ningun objetivo, no hacer nada
             return;
- 
  
         move();
         zoom();
@@ -61,13 +63,13 @@ public class MovimientosCamara : MonoBehaviour
         var bounds = new Bounds(targets[0].position, Vector3.zero); //crea un grupo de objetos (bounds)
         for (int i = 0; i < targets.Count; i++)
         {
- 
+            float multiplier = Vector3.Distance(targets[0].transform.position, targets[1].transform.position);
             bounds.Encapsulate(targets[i].position); //saca la posicion central del bound
- 
- 
+            boundsize = bounds.size.x + multiplier;
+
         }
  
-        return bounds.size.x;
+        return boundsize;
  
     }
  

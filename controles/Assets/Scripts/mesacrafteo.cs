@@ -30,27 +30,44 @@ public class mesacrafteo : MonoBehaviour
 
             if (objetos.Count == 0){
                 //PONER OBJETO EN LUGAR 1
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.GetComponent<Collider>().isTrigger = true;
+
                 other.transform.position = points[0].transform.position;
-                
+
+                other.gameObject.transform.SetParent(points[0].gameObject.transform);
                 objetos.Add(other.gameObject);
-                infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
-                infoLastObjeto = objetos[0].GetComponent<ObjetoInfo>();
+                /*infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
+                infoLastObjeto = objetos[0].GetComponent<ObjetoInfo>();*/
                 point++;
                 return;
             }
 
             if (objetos.Count == 1 && point == 1 && infoLastObjeto == infoObjeto){
                 //PONER OBJETO EN LUGAR 2
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.GetComponent<Collider>().isTrigger = true;
+
                 other.transform.position = points[1].transform.position;
+
+                other.gameObject.transform.SetParent(points[1].gameObject.transform);
                 objetos.Add(other.gameObject);
-                infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
+                //infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
                 point++;
                 return;
             }
 
             if (objetos.Count == 3 && point == 2 && infoLastObjeto == infoObjeto){
                 //PONER OBJETO EN LUGAR 3
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.GetComponent<Collider>().isTrigger = true;
+
                 other.transform.position = points[2].transform.position;
+
+                other.gameObject.transform.SetParent(points[2].gameObject.transform);
                 objetos.Add(other.gameObject);
                 point++;
                 return;

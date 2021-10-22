@@ -169,10 +169,10 @@ public class MovimientosBasicos : MonoBehaviour
       StartCoroutine(GottaGoFast());
 
       IEnumerator GottaGoFast(){
-        spEed = 10;
+        spEed = 12;
         WaitForSeconds wait = new WaitForSeconds(time);
         yield return wait;
-        spEed = 5;  
+        spEed = 8;  
     }
     }
 
@@ -181,10 +181,10 @@ public class MovimientosBasicos : MonoBehaviour
       StartCoroutine(GottaGoSlow());
 
       IEnumerator GottaGoSlow(){
-        spEed = 2;
+        spEed = 4;
         WaitForSeconds wait = new WaitForSeconds(time);
         yield return wait;
-        spEed = 5;  
+        spEed = 8;  
     }
     }
 

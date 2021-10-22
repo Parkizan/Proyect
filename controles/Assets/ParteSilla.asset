@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ParteSilla
   m_EditorClassIdentifier: 
   tag: Silla
-  prefab: {fileID: 7685708483662105495, guid: da30ed1790f99b54fb75d118f06e01c8, type: 3}
+  prefab: {fileID: 380612735340803645, guid: 989ba3addd8383b46894ec24172e7c56, type: 3}

@@ -23,7 +23,10 @@ public class Agarrar : MonoBehaviour
                 }
                 other.transform.position = handPoint.transform.position;
                 other.gameObject.transform.SetParent(handPoint.gameObject.transform);
-                pickedObject = other.gameObject;
+
+                Debug.Log("agarro");
+
+                //pickedObject = other.gameObject;
                 FindObjectOfType<AudioManager>().Play("PickupObject");
                 StartCoroutine(delayCopado());
                 return;
@@ -34,9 +37,12 @@ public class Agarrar : MonoBehaviour
                 other.GetComponent<Rigidbody>().useGravity = true;
                 other.GetComponent<Rigidbody>().isKinematic = false;
                 other.GetComponent<Collider>().isTrigger = false;
-                other.transform.position = handPoint.transform.position;
+                //other.transform.position = handPoint.transform.position;
+
+                Debug.Log("solto");
+
                 other.gameObject.transform.SetParent(null);
-                pickedObject = null;
+                //pickedObject = null;
                 FindObjectOfType<AudioManager>().Play("DropObject");
                 StartCoroutine(delayCopado2());
                 return;

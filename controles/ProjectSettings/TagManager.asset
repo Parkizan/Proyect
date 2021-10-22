@@ -7,6 +7,7 @@ TagManager:
   - Objeto
   - cajita
   - Knockback
+  - MesaCrafteo
   layers:
   - Default
   - TransparentFX
