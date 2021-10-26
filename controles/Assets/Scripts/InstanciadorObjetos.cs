@@ -10,6 +10,7 @@ public class InstanciadorObjetos : MonoBehaviour
   [SerializeField] float time = 5;
 
   public GameObject test;
+
     private void Update() {
         if (!hasObjectInIt) {
             //Coroutine instantiate 1 segundo
@@ -23,7 +24,7 @@ public class InstanciadorObjetos : MonoBehaviour
         hasObjectInIt = true;
         yield return wait;
         //instanciar
-        Instantiate(test, transfor.position, transfor.rotation, transform);
+        Instantiate(test, transfor.position, test.transform.rotation);
             
     }
 
