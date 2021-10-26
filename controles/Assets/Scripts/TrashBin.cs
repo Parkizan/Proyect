@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrashBin : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider coll) 
+    private void OnCollisionEnter(Collision coll) 
     {
         if (coll.transform.parent == null && coll.gameObject.tag == "Objeto"){
            

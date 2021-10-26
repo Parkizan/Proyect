@@ -9,13 +9,17 @@ public class LevelLoader : MonoBehaviour {
     public Slider slider;
     public Text progressText;
 
-    public void LoadLevel (int sceneIndex)
-    {
-        StartCoroutine(LoadAsynchronously(sceneIndex));
+    public void Start(){
+        LoadLevel();
     }
 
-    IEnumerator LoadAsynchronously (int sceneIndex){
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+    public void LoadLevel()
+    {
+        StartCoroutine(LoadAsynchronously());
+    }
+
+    IEnumerator LoadAsynchronously(){
+        AsyncOperation operation = SceneManager.LoadSceneAsync("Game");
 
         loadingScreen.SetActive(true);
 

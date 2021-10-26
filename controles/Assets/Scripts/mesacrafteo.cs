@@ -79,11 +79,20 @@ public class mesacrafteo : MonoBehaviour
     private void Update(){
 
         if (objetos.Count == 3){
-            //ESPERAR COURTINE
             
+            //ObjetoInfo infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
+            //ESPERAR COURTINE
+                        
             //INSTANCIAR OBJETO
+            //Instantiate(objetos.)
+            //InfoLastObjeto.prefab
+            //destroy(objetos[0])
+            //destroy(objetos[1])
+            //destroy(objetos[2])
+
 
             //Instantiate(objetos[2].GetComponent<ObjetoInfo>().info.prefab, posicionCualquiera,RotacionCualquiera);
+            //objetos.Clear();
 
             /*foreach (GameObject objecto in objetos)
             {
@@ -93,4 +102,5 @@ public class mesacrafteo : MonoBehaviour
             //matar el array
         }
     }
+
 }
