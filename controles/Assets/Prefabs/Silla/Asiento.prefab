@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5657530821229430665}
   m_Layer: 0
   m_Name: Asiento
-  m_TagString: Untagged
+  m_TagString: Objeto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

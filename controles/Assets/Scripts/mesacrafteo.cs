@@ -7,12 +7,17 @@ public class mesacrafteo : MonoBehaviour
     public GameObject[] points;
     public ObjetoInfo infoLastObjeto;
 
+    public ObjetoInfo[] muebles;
+    public GameObject[] mueble;
+
     /*CADA OBJETO, tiene un SCRIPT DE INFORMACION DE OBJECTO (ItemInfo)
 
      a la hora de introducir el objeto en la mesa, consigue el script ItemInfo y se FIJA que sea del mismo tipo que el ultimo
      objeto, y que si no hay ninguno no se fije. hacemos... un ARRAY de objetos los cuales estan en la mesa.
      Cuando llegue a la maxima capacidad, INSTANCIAR el objeto que corresponde al ItemInfo. */
     public int point = 0;
+
+    //public GameObject 
 
      public List<GameObject> objetos = new List<GameObject>();
 
@@ -25,7 +30,6 @@ public class mesacrafteo : MonoBehaviour
             objetos.Remove(null);//por instancia
             objetos.RemoveAt(0);//remueve el obj en una posicion*/
 
-            //if (objetos.Count == 3) return;
             ObjetoInfo infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
 
             if (objetos.Count == 0){
@@ -38,8 +42,8 @@ public class mesacrafteo : MonoBehaviour
 
                 other.gameObject.transform.SetParent(points[0].gameObject.transform);
                 objetos.Add(other.gameObject);
-                /*infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
-                infoLastObjeto = objetos[0].GetComponent<ObjetoInfo>();*/
+                //infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
+                infoLastObjeto = objetos[0].GetComponent<ObjetoInfo>();
                 point++;
                 return;
             }
@@ -79,16 +83,33 @@ public class mesacrafteo : MonoBehaviour
     private void Update(){
 
         if (objetos.Count == 3){
+
+            Destroy(objetos[0]);
+            Destroy(objetos[1]);
+            Destroy(objetos[2]);
+
+            StartCoroutine(Crafting());
             
-            //ObjetoInfo infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
-            //ESPERAR COURTINE
-                        
-            //INSTANCIAR OBJETO
+            if(infoLastObjeto == muebles[0]){
+                Instantiate(mueble[0], points[1].transform.position, Quaternion.identity);
+            }
+
+            if(infoLastObjeto == muebles[1]){
+                Instantiate(mueble[1], points[1].transform.position, Quaternion.identity);
+            }
+
+            if(infoLastObjeto == muebles[2]){
+                Instantiate(mueble[2], points[1].transform.position, Quaternion.identity);
+            }
+
+            if(infoLastObjeto == muebles[3]){
+                Instantiate(mueble[3], points[1].transform.position, Quaternion.identity);
+            }
+
+            objetos.Clear();
+
             //Instantiate(objetos.)
             //InfoLastObjeto.prefab
-            //destroy(objetos[0])
-            //destroy(objetos[1])
-            //destroy(objetos[2])
 
 
             //Instantiate(objetos[2].GetComponent<ObjetoInfo>().info.prefab, posicionCualquiera,RotacionCualquiera);
@@ -101,6 +122,12 @@ public class mesacrafteo : MonoBehaviour
             //objetos = new GameObject[];
             //matar el array
         }
+    }
+
+    IEnumerator Crafting()
+    {   float time = 2f;
+        WaitForSeconds wait = new WaitForSeconds(time);
+        yield return wait;
     }
 
 }

@@ -11,6 +11,9 @@ public class CountdownController : MonoBehaviour
     public GameManager GM;
 
     private void Start(){
+
+        Timer tim = GetComponent<Timer>();
+        tim.StartTimer();
         StartCoroutine(CountdownToStart());
     }
 

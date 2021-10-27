@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public GameObject Contador;
     public int secondsLeft;
     public bool takingAway = false;
+    public bool start = false;
     public int min;
 
     void Start ()
@@ -18,10 +19,15 @@ public class Timer : MonoBehaviour
 
     void Update ()
     {
-        if (takingAway == false && secondsLeft > 0)
+        if (takingAway == false && secondsLeft > 0 && start == true)
         {
             StartCoroutine(TimerTake());
         }
+    }
+
+    public void StartTimer()
+    {
+        start = true;
     }
 
     IEnumerator TimerTake()

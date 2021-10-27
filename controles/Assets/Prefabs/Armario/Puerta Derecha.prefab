@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 7017408881400074224}
   m_Layer: 0
   m_Name: Puerta Derecha
-  m_TagString: Untagged
+  m_TagString: Objeto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
