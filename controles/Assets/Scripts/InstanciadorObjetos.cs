@@ -12,23 +12,33 @@ public class InstanciadorObjetos : MonoBehaviour
   public GameObject test;
 
     private void Update() {
+
         if (!hasObjectInIt) {
             //Coroutine instantiate 1 segundo
             StartCoroutine(spawnCycle());
         } 
+
+        if (transform.childCount == 0){
+            hasObjectInIt = false;
+        }
+        
+        if (transform.childCount == 1){
+            hasObjectInIt = true;
+        }
+
     }
 
 
     IEnumerator spawnCycle(){
         WaitForSeconds wait = new WaitForSeconds(time);
-        hasObjectInIt = true;
         yield return wait;
-        //instanciar
-        Instantiate(test, transfor.position, test.transform.rotation);
-            
+        GameObject gm = Instantiate(test, transfor.position, test.transform.rotation);
+        gm.transform.parent = gameObject.transform;
     }
 
-    void objectHandler(bool objectStatus)
+    
+
+    /*void objectHandler(bool objectStatus)
     {
         if (objectStatus)
         {
@@ -38,6 +48,6 @@ public class InstanciadorObjetos : MonoBehaviour
         {
             hasObjectInIt = false;
         }
-    }
+    }*/
 
 }

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2184883622670144189}
   - component: {fileID: -4913618607197143361}
   - component: {fileID: 5356990505982637168}
+  - component: {fileID: 8016092438897058017}
   m_Layer: 0
   m_Name: Sillon Brutal
   m_TagString: Mueble
@@ -149,6 +150,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.5454783, y: 4.832495, z: 5.4402933}
   m_Center: {x: 0.40519878, y: 1.8824803, z: -0.008440614}
+--- !u!114 &8016092438897058017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520409870269073415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbf6305caa66654889cb09d34cac060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 11400000, guid: 8def725d57e65094bace885b214c7a24, type: 2}
 --- !u!1 &6944479004649018930
 GameObject:
   m_ObjectHideFlags: 0

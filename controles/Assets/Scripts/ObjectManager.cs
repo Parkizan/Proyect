@@ -7,7 +7,13 @@ public class ObjectManager : MonoBehaviour
     GameObject objeto;
     public void BorrarMiObjeto()
     {
+      if (transform.childCount == 0)
+      {
+        Debug.Log("No hay objeto");
+      }
+
       if(transform.childCount > 0){
+      Debug.Log("buscando obj");
       objeto = FindFirstChildWithTag(gameObject, "Objeto");
       FindObjectOfType<AudioManager>().Play("BreakingItem");
       Destroy(objeto);

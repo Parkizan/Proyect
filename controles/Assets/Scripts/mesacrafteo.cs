@@ -10,6 +10,11 @@ public class mesacrafteo : MonoBehaviour
     public ItemInfo[] mueblesInfo;
     public GameObject[] muebleObject;
 
+    public PointInfo p1;
+    public PointInfo p2;
+    public PointInfo p3;
+
+    bool hasCrafted = false;
     /*CADA OBJETO, tiene un SCRIPT DE INFORMACION DE OBJECTO (ItemInfo)
 
      a la hora de introducir el objeto en la mesa, consigue el script ItemInfo y se FIJA que sea del mismo tipo que el ultimo
@@ -18,8 +23,18 @@ public class mesacrafteo : MonoBehaviour
      //public int point = 0;
      public List<GameObject> objetos = new List<GameObject>();
 
+
+    
+    void Start()
+    {
+        p1 = points[0].GetComponent<PointInfo>();
+        p2 = points[1].GetComponent<PointInfo>();
+        p3 = points[2].GetComponent<PointInfo>();
+    }
     private void OnCollisionEnter(Collision other){
 
+        if (hasCrafted) return;
+        StartCoroutine(delay(1f));
         if (other.transform.parent == null && other.gameObject.tag == "Objeto")
         {
             /*objetos.Add(other.gameObject.GetComponent<GameObject>());
@@ -32,6 +47,10 @@ public class mesacrafteo : MonoBehaviour
 
             if (objetos.Count == 0){
                 //PONER OBJETO EN LUGAR 1
+
+                Debug.Log("Entró");
+                //objetos.Add(other.gameObject);
+                
                 objetos.Add(other.gameObject);
                 other.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -42,19 +61,22 @@ public class mesacrafteo : MonoBehaviour
                 other.gameObject.transform.SetParent(points[0].gameObject.transform);
                 //infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
                 infoLastObjeto = objetos[0].GetComponent<ObjetoInfo>();
+                //p1.hasObjectInIt = true;
                 lastItemInfo = infoLastObjeto.info;
                 return;
             }
 
             if (objetos.Count == 1 && lastItemInfo == infoItem){
                 //PONER OBJETO EN LUGAR 2
+                
+                //objetos.Add(other.gameObject);
                 objetos.Add(other.gameObject);
                 other.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 other.gameObject.GetComponent<Collider>().isTrigger = true;
 
                 other.transform.position = points[1].transform.position;
-
+                //p2.hasObjectInIt = true;
                 other.gameObject.transform.SetParent(points[1].gameObject.transform);
                 //infoObjeto = other.gameObject.GetComponent<ObjetoInfo>();
                 return;
@@ -62,14 +84,15 @@ public class mesacrafteo : MonoBehaviour
 
             if (objetos.Count == 2 && lastItemInfo == infoItem){
                 //PONER OBJETO EN LUGAR 3
-                objetos.Add(other.gameObject);
 
+                
+                objetos.Add(other.gameObject);
                 other.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 other.gameObject.GetComponent<Collider>().isTrigger = true;
 
                 other.transform.position = points[2].transform.position;
-
+                //p3.hasObjectInIt = true;
                 other.gameObject.transform.SetParent(points[2].gameObject.transform);
                 return;
             }
@@ -77,14 +100,20 @@ public class mesacrafteo : MonoBehaviour
         }
     }
 
+    public void RemoveObject(int position) {
+
+        if (objetos.Count - 1 < position) return;
+
+        objetos.RemoveAt(position); 
+
+    }
+
+
     void Update(){
 
-        PointInfo p1 = points[0].GetComponent<PointInfo>();
-        PointInfo p2 = points[1].GetComponent<PointInfo>();
-        PointInfo p3 = points[2].GetComponent<PointInfo>();
-
-        if (p1.hasObjectInIt == false && objetos.Count == 1)
+        /*if (p1.hasObjectInIt == false && objetos.Count == 1)
         {
+            Debug.Log("wee");
             objetos.RemoveAt(0);
         }
 
@@ -96,7 +125,7 @@ public class mesacrafteo : MonoBehaviour
         if (p3.hasObjectInIt == false && objetos.Count == 3)
         {
             objetos.RemoveAt(2);
-        }
+        }*/
         
         if (objetos.Count == 3){
             
@@ -146,6 +175,13 @@ public class mesacrafteo : MonoBehaviour
             //matar el array
         }
     }
+
+    IEnumerator delay(float seconds){
+        hasCrafted = true;
+        yield return new WaitForSeconds(seconds);
+        hasCrafted = false;
+    }
+
 
     IEnumerator Crafting()
     { 
