@@ -33,15 +33,15 @@ public class InstanciadorCajas : MonoBehaviour
 
     IEnumerator SpawnCajas()
         {
-                hasSpawned = true;
-                yield return new WaitForSeconds(5);
-                ClonarCajas();
-                hasSpawned = false;
+            hasSpawned = true;
+            yield return new WaitForSeconds(5);
+            ClonarCajas();
+            hasSpawned = false;
         }
 
     public void ClonarCajas()
     {
-        Random.seed = (int)System.DateTime.Now.Ticks;
+        // Random.seed = (int)System.DateTime.Now.Ticks;
         // Random.Range(int floor, int ceiling);
         numeroAleatorio = Random.Range(0,6);
         //Debug.Log("Random seed = " + numeroAleatorio);

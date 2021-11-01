@@ -8,6 +8,7 @@ public class TrashBin : MonoBehaviour
     {
         if (coll.transform.parent == null && coll.gameObject.tag == "Objeto"){
            
+           FindObjectOfType<AudioManager>().Play("BreakingItem");
            Destroy(coll.gameObject);
         }
     }

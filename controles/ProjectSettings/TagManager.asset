@@ -8,6 +8,12 @@ TagManager:
   - cajita
   - Knockback
   - MesaCrafteo
+  - Mueble
+  - Caja Silla
+  - Caja Armario
+  - Caja Lampara
+  - Caja Mesa Noche
+  - Caja Sillon
   layers:
   - Default
   - TransparentFX

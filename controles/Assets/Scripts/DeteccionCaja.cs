@@ -15,7 +15,7 @@ public class DeteccionCaja : MonoBehaviour
        //IC = GameObject.FindGameObjectWithTag("GameController").GetComponent<InstanciadorCajas>();
     }*/
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnTriggerEnter(Collider other) {
     
 	if(other.gameObject.tag == "Player")
     {
@@ -47,7 +47,7 @@ public class DeteccionCaja : MonoBehaviour
         
   }
     
-    private void PowerUpSpeed(Collision player)
+    private void PowerUpSpeed(Collider player)
     {
         //Debug.Log(player.gameObject);
         MovimientosBasicos mov = player.gameObject.GetComponent<MovimientosBasicos>();
@@ -55,14 +55,14 @@ public class DeteccionCaja : MonoBehaviour
         
     }
 
-    private void PowerDownSpeed(Collision player)
+    private void PowerDownSpeed(Collider player)
     {
         //Debug.Log(player.gameObject);
         MovimientosBasicos mov = player.gameObject.GetComponent<MovimientosBasicos>();
         mov.SpeedDown();
     } 
 
-    private void PowerUpFuerza(Collision player)
+    private void PowerUpFuerza(Collider player)
     {
         //Debug.Log(player.gameObject);
         GameObject player1 = GameObject.Find("Tester (1)");
@@ -84,7 +84,7 @@ public class DeteccionCaja : MonoBehaviour
         //disminuye la fuerza del jugador
     }
 
-    private void BorrarObjetoPropio(Collision player)
+    private void BorrarObjetoPropio(Collider player)
     {
         //Debug.Log(player.gameObject);
         hand1 = player.transform.Find("Hand");
@@ -93,7 +93,7 @@ public class DeteccionCaja : MonoBehaviour
         obj.BorrarMiObjeto();
     }
 
-    private void BorrarObjetoAjeno(Collision player)
+    private void BorrarObjetoAjeno(Collider player)
     {
         //Debug.Log(player.gameObject);
         GameObject player1 = GameObject.Find("Tester (1)");

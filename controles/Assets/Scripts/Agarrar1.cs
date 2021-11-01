@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Agarrar1 : MonoBehaviour
 {
-    private GameObject pickedObject;
+    //private GameObject pickedObject;
     bool isHoldingSomething = false;
     public GameObject handPoint;
     //public string childFound;
@@ -12,30 +12,38 @@ public class Agarrar1 : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-            if (Input.GetKeyDown("g") && !isHoldingSomething && other.tag == "Objeto")
+            if (Input.GetKeyDown("g") && !isHoldingSomething && (other.tag == "Objeto" || other.tag == "Mueble" || other.tag == "Caja Silla" || other.tag == "Caja Armario" || other.tag == "Caja Lampara" || other.tag == "Caja Mesa Noche" || other.tag == "Caja Sillon"))
             {
                 other.GetComponent<Rigidbody>().useGravity = false;
                 other.GetComponent<Rigidbody>().isKinematic = true;
-                other.GetComponent<Collider>().isTrigger = false;
+                other.GetComponent<Collider>().isTrigger = true;
                 if (other.gameObject.GetComponentInParent<InstanciadorObjetos>()){
                     InstanciadorObjetos insta = other.transform.GetComponentInParent<InstanciadorObjetos>();
                     insta.hasObjectInIt = false;
                 }
                 other.transform.position = handPoint.transform.position;
                 other.gameObject.transform.SetParent(handPoint.gameObject.transform);
-                pickedObject = other.gameObject;
+                //pickedObject = other.gameObject;
                 FindObjectOfType<AudioManager>().Play("PickupObject");
                 StartCoroutine(delayCopado());
                 return;
             }
+
             if (Input.GetKeyDown("g") && isHoldingSomething)
             {
+                if (other.tag == "Caja Silla" || other.tag == "Caja Armario" || other.tag == "Caja Lampara" || other.tag == "Caja Mesa Noche" || other.tag == "Caja Sillon")
+                {
+                    Identificadorcaja ic = other.GetComponent<Identificadorcaja>();
+                    ic.LastParent = 2;
+                }
+
                 other.GetComponent<Rigidbody>().useGravity = true;
                 other.GetComponent<Rigidbody>().isKinematic = false;
-                other.GetComponent<Collider>().isTrigger = true;
-                other.transform.position = handPoint.transform.position;
+                other.GetComponent<Collider>().isTrigger = false;
+                //other.transform.position = handPoint.transform.position;
+
                 other.gameObject.transform.SetParent(null);
-                pickedObject = null;
+                //pickedObject = null;
                 FindObjectOfType<AudioManager>().Play("DropObject");
                 StartCoroutine(delayCopado2());
                 return;
@@ -44,7 +52,7 @@ public class Agarrar1 : MonoBehaviour
 
     IEnumerator delayCopado()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         isHoldingSomething = true;
     }
 
